@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-foooter',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './foooter.component.scss'
 })
 export class FoooterComponent {
-
+  @Input('company') company = '';
+  @Input('author') author = '';
 }
