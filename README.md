@@ -1,1 +1,2 @@
 # AprohirdetesPortal
+hát akkor csapasssuk 
