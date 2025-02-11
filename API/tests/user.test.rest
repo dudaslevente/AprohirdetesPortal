@@ -1,0 +1,22 @@
+###
+//register
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Dudás levente",
+    "email": "dudas@gmail.com",
+    "password": "jo1234"
+}
+
+###
+// user login
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "dudas@gmail.com",
+    "password": "jo1234"
+}
+
+
