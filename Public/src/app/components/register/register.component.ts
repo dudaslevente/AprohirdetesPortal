@@ -5,11 +5,22 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatDividerModule} from '@angular/material/divider';
+
+
+
+
+
+
+
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatInputModule, MatFormFieldModule, FormsModule, ReactiveFormsModule, MatButtonModule],
+  imports: [MatInputModule, MatFormFieldModule,MatDividerModule,MatIconModule, FormsModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
