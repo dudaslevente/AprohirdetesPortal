@@ -41,6 +41,6 @@ export class ApiService {
   }
 
   login(data:object){
-    return this.http.post(this.server + '/login/', data);
+    return this.http.post(this.server + '/api/users/login/', data);
   }
 }
