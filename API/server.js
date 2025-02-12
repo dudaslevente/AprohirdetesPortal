@@ -1,6 +1,15 @@
+const express = require('express');
+const routes = require('./routes');
 const app = require('./app');
 const sequelize = require('./config/database');
 const Category = require('./models/category.model');
+const userRoutes = require('./routes/user.routes');
+
+const app = express();
+app.use(express.json());
+app.use(routes);
+
+app.use('/users', userRoutes);
 
 const PORT = process.env.PORT || 8080;
 
