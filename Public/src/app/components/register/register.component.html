@@ -1,19 +1,27 @@
+<div class="reg">
+
+
+
 <form class="example-form">
     <h1>Regisztráció</h1>
     <mat-form-field class="example-full-width">
-        <label>Name</label>
-        <input type="text" id="name" name="name" matInput [(ngModel)]="name" placeholder="Name" autocomplete="name">
+        <label><b> <i>Name:</i></b></label>
+        <input type="text" id="name" name="name" matInput [(ngModel)]="name" placeholder="/" autocomplete="name">
     </mat-form-field>
     <br>
     <mat-form-field class="example-full-width">
-        <label>Email address</label>
-        <input type="email" id="email" name="email" matInput [(ngModel)]="email" placeholder="Ex. pat@example.com" autocomplete="email">
+        <label><b> <i>Email address:</i></b></label>
+        <input type="email" id="email" name="email" matInput [(ngModel)]="email" placeholder="/" autocomplete="email">
     </mat-form-field>
     <br>
     <mat-form-field class="example-full-width">
-        <label>Password</label>
-        <input type="password" id="password" name="password" matInput [(ngModel)]="password" placeholder="Password" autocomplete="new-password">
+        <label><b> <i>Password:</i></b></label>
+        <input type="password" id="password" name="password" matInput [(ngModel)]="password" placeholder="/" autocomplete="new-password">
     </mat-form-field>
     <br>
     <button mat-button (click)="registration()">Regisztráció</button>
+    <button mat-button (click)="">Login</button>
 </form>
+
+
+</div>
