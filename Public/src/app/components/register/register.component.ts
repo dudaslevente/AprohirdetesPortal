@@ -4,6 +4,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent {
   password: string = '';
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private router: Router,
   ){}
 
   registration() {
@@ -36,7 +38,8 @@ export class RegisterComponent {
     this.api.registration(Data).subscribe({
       next: (res) => {
         console.log("Sikeres regisztráció:", res);
-        alert("Sikeres regisztráció:")
+        alert("Sikeres regisztráció:");
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error("Hiba a regisztrációnál:", err);
