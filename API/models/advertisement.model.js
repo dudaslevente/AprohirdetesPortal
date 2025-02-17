@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/database');
 const { v4: uuidv4 } = require('uuid');
+const { User } = require('./user.model');  
+const Category = require('./category.model');  
 
 const Advertisement = db.define('advertisement', {
     id: {
@@ -9,15 +11,15 @@ const Advertisement = db.define('advertisement', {
         primaryKey: true
     },
     userID: {
-        type: DataTypes.STRING,
-        allowNull: true
+        type: DataTypes.UUID,
+        allowNull: false
     },
     date: {
         type: DataTypes.DATE,
         allowNull: false,
     },
-    category: {
-        type: DataTypes.STRING,
+    categoryID: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },  
     title: {
@@ -32,10 +34,21 @@ const Advertisement = db.define('advertisement', {
         type: DataTypes.INTEGER,  
         allowNull: false
     },    
-    image: {
-        type: DataTypes.BLOB('long'),
-        allowNull: true,
-    }
+    filename: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    path: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
 });
+
+Advertisement.belongsTo(User, { foreignKey: 'userID', targetKey: 'id'});
+User.hasMany(Advertisement, { foreignKey: 'userID', sourceKey: 'id'});
+
+Advertisement.belongsTo(Category, { foreignKey: 'categoryID', targetKey: 'id'});
+Category.hasMany(Advertisement, { foreignKey: 'categoryID', sourceKey: 'id',});
+
 
 module.exports = { Advertisement };

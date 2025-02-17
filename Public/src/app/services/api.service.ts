@@ -13,15 +13,15 @@ export class ApiService {
   server = `http://localhost:3000`;
 
   readAll(table: string){
-    return this.http.get(this.server + '/public/' + table);
+    return this.http.get(this.server + '/api/public/' + table);
   }
 
   selectAll(table:string){
     return this.http.get(`${this.server}/${table}`);
   }
 
-  select(table:string, id:number){
-    return this.http.get(`${this.server}/images/${id}`);
+  select(table: string, field:string, op: string, value: string){
+    return this.http.get(this.server + '/'+table+'/'+field+'/'+op+'/'+value);
   }
 
   delete(table:string, id:number){

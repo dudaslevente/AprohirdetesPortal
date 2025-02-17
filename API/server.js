@@ -1,14 +1,33 @@
 const express = require('express');
 const routes = require('./routes');
 const app = require('./app');
+const multer  = require('multer');
 const sequelize = require('./config/database');
 const Category = require('./models/category.model');
 const userRoutes = require('./routes/user.routes');
+const advertisementsRoutes = require('./routes/advertisement.routes');
 
 app.use(express.json());
 app.use(routes);
+app.use('/uploads', express.static('uploads'));
 
 app.use('/users', userRoutes);
+app.use('/advertisements', advertisementsRoutes);
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+      const timestamp = Date.now();
+      const originalname = file.originalname.replace(' ', '_');
+      const name = originalname.substring(0, originalname.lastIndexOf('.'));
+      const ext = originalname.substring(originalname.lastIndexOf('.'));
+      cb(null, name + '-' + timestamp + ext);
+  }
+});
+
+const upload = multer({ storage: storage })
 
 const PORT = process.env.PORT || 8080;
 

@@ -1,0 +1,14 @@
+<div class="gallery">
+  <div *ngFor="let image of images; let i = index" class="gallery-item">
+    <img src="{{serverUrl}}/{{image}}" alt="Image" (click)="openLightbox(i)" *ngIf="i == 0"/>
+  </div>
+</div>
+
+<div class="lightbox" *ngIf="currentImageIndex !== null">
+  <div class="lightbox-content">
+    <button class="close-btn" (click)="closeLightbox()">×</button>
+    <button class="prev-btn" (click)="prevImage()">❮</button>
+    <img src="{{serverUrl}}/{{images[currentImageIndex]}}" alt="Large Image" />
+    <button class="next-btn" (click)="nextImage()">❯</button>
+  </div>
+</div>
