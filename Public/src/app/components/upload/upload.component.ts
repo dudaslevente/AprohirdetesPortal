@@ -1,17 +1,16 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
+import { FormsModule } from '@angular/forms'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';  
 
 @Component({
   selector: 'app-upload',
-  imports: [MatCardModule, MatButtonModule,MatInputModule,MatFormFieldModule, CommonModule],
+  standalone: true,  
+  imports: [FormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './upload.component.html',
-  styleUrl: './upload.component.scss'
+  // styleUrls: ['./upload.component.css'] // Ezt töröltük
 })
 export class UploadComponent {
-
+  selectedCategory: string = '';
+  categories = ['Category1', 'Category2', 'Category3']; 
 }

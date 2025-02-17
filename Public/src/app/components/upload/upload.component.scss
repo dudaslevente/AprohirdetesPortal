@@ -1,0 +1,35 @@
+.upload{
+  overflow:auto;
+  border: 1px solid rgba(210, 210, 210, 0.40);
+  color: rgb(210, 210, 210);
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  width: 350px;
+  background-color:  rgba(15, 15, 15, 0.5);
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+}
+.category{
+  padding-top: 40px;
+  width: 400px;
+  overflow:auto;
+  height: 70px;
+  background-color:  rgba(15, 15, 15, 0.5);
+  margin: auto;
+}
+.kivalaszt{
+
+
+
+  color: rgb(210, 210, 210);
+  background-color:  rgba(15, 15, 15, 0.5)
+}
+
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

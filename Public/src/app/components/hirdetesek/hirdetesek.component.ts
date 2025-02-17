@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-hirdetesek',
+  
   standalone: true,
   imports: [MatCardModule, MatButtonModule, CommonModule],
   templateUrl: './hirdetesek.component.html',
