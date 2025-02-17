@@ -1,6 +1,10 @@
 <nav class="navbar">
-  <div class="buttonDiv">
+  <div class="buttonDiv" *ngIf="!isLoggedIn">
     <button mat-button onclick="window.location.href='/'">Regisztráció</button>
     <button mat-button onclick="window.location.href='/login'">Login</button>
+  </div>
+  <div class="buttonDiv" *ngIf="isLoggedIn">
+    <button mat-button onclick="window.location.href='/hirdetesek'">Hirdetések</button>
+    <button mat-button onclick="window.location.href='/logout'">Kijelentkezés</button>
   </div>
 </nav>

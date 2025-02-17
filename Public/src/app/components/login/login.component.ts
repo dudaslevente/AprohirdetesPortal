@@ -41,7 +41,7 @@ export class LoginComponent {
         this.auth.login(res.token);
         alert("Sikeres bejelentkezés!");
 
-        //this.router.navigate(['/package']);
+        this.router.navigate(['/hirdetesek']);
       },
       error: (err) => {
         console.error(" Hiba a bejelentkezésnél:", err);
