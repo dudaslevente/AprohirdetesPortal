@@ -43,4 +43,10 @@ export class ApiService {
   login(data:object){
     return this.http.post(this.server + '/api/users/login/', data);
   }
+
+  /*
+  kereses(data:object){
+    return this.http.post(this.server + '/api/users/login/', data);
+  }
+  */
 }
