@@ -13,7 +13,7 @@ export class ApiService {
   server = `http://localhost:3000`;
 
   readAll(table: string){
-    return this.http.get(this.server + '/api/public/' + table);
+    return this.http.get(this.server + '/api/advertisements/' + table);
   }
 
   selectAll(table:string){

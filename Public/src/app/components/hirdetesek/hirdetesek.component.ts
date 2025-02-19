@@ -21,8 +21,8 @@ export class HirdetesekComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.api.readAll('advertisements').subscribe(res => {
-      this.advertisments = res as Advertisment[];
-    })
+    this.api.readAll('advertisements').subscribe((res:any) => {
+      this.advertisments = res.advertisements as Advertisment[];
+    });
   }
 }

@@ -8,6 +8,6 @@ const { authMiddleware } = require('../middlewares/auth.middleware');
 **/
 
 //get all advertisement
-router.get('/advertisements', advertisementController.getAlladvertisements);
+router.get('/advertisements', advertisementController.advertisements);
 
 module.exports = router; 

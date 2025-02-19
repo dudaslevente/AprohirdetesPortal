@@ -1,8 +1,8 @@
 const advertisementService = require('../services/advertisement.service.js')
 
-exports.getAlladvertisements = async(_req, res, next) =>{
+exports.advertisements = async(_req, res, next) =>{
     try{
-        const advertisements = await advertisementService.getAllAdvertisements();
+        const advertisements = await advertisementService.advertisements();
         res.status(200).json({success: true, advertisements: advertisements})
     }
     catch(err){

@@ -4,7 +4,7 @@
           <mat-card-title>{{advertisment.title}}</mat-card-title>
         </mat-card-header>
         <app-lightbox [images]="advertisment.images"></app-lightbox>
-        <img src="http://localhost:3000/uploads/nopic.png" alt="" *ngIf="advertisment.images.length == 0">
+        <img src="http://localhost:3000/uploads/nopic.png">
         <mat-card-content>
           <ul>
             <li class="list-group-item text-center">Dátum: {{advertisment.date}}</li>
