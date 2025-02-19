@@ -1,18 +1,41 @@
-<p>Képfeltöltés</p>
+
 <div class="upload">
-    
-      <mat-form-field class="category">
-        <mat-label>Kategóriák</mat-label>
-        <select [(ngModel)]="selectedCategory" class="kivalasz">
-          <option *ngFor="let category of categories" [value]="category">
-            {{ category }}
-          </option>
-        </select>
-        
+  <div class="data">
+    <div class="tbox">
+      <mat-label>Hirdetés cime:</mat-label>
+      <mat-label>Kategóriák:</mat-label>
+      <mat-label>Leirás:</mat-label>
+
+    </div>
+    <div class="dbox">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Dudás" value="">
       </mat-form-field>
+      <mat-form-field>
+        <select matNativeControl (change)="selectCar($event)">
+          @for (option of cars; track option) {
+            <option [value]="option.value"
+                  [selected]="selectedCar === option.value">{{ option.viewValue }}</option>
+          }
+        </select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Dudás a legjobb fcista..."></textarea>
+      </mat-form-field>
+      
+    </div>
+  </div>
+  <div class="data">
+    <div class="tbox"><mat-label>Ár:</mat-label></div>
+    <div class="dbox"><mat-form-field >        
+      <input matInput type="number" [(ngModel)]="value">
+    </mat-form-field></div>
     
-      
-      
-     
-      
+  </div>
+  <div>
+    <button mat-button onclick="window.location.href='/login'">Képfeltöltés</button>
+    <button mat-button onclick="window.location.href='/login'">Mentés</button>
+
+  </div>
+ 
 </div>
