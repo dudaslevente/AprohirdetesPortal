@@ -10,6 +10,6 @@ const advertisementRoutes = require('./advertisement.routes');
 
 // regisztráljuk az útvonalakat
 router.use('/users', userRoutes);
-router.use('/advertisement', advertisementRoutes);
+router.use('/advertisements', advertisementRoutes);
 
 module.exports = router;

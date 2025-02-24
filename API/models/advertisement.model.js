@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const { User } = require('./user.model');  
 const Category = require('./category.model');  
 
-const Advertisement = db.define('advertisement', {
+const Advertisement = db.define('advertisements', {
     id: {
         type: DataTypes.UUID,
         defaultValue: uuidv4,
