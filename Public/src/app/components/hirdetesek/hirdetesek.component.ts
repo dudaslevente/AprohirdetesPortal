@@ -22,34 +22,44 @@ interface Car {
 export class HirdetesekComponent implements OnInit {
   constructor(private api: ApiService) {}
 
-  advertisments: Advertisment[] = [];  // Az összes hirdetés
-  filteredAdvertisements: Advertisment[] = [];  // A szűrt hirdetések
+  advertisments: Advertisment[] = [];
+  filteredAdvertisements: Advertisment[] = [];  // A szűrt hirdetések tárolására.
 
   ngOnInit(): void {
     this.api.readAll('advertisements').subscribe((res: any) => {
       this.advertisments = res.advertisements as Advertisment[];
-      this.filteredAdvertisements = [...this.advertisments];  // Alapértelmezetten az összes hirdetés megjelenik
+      this.filteredAdvertisements = [...this.advertisments];  // Alapértelmezetten az összes hirdetést betöltjük.
     });
   }
 
-  // Szűrés a kiválasztott kategória alapján
   filterAdvertisements() {
-    if (this.selectedCar) {
-      // Az összehasonlítást úgy végezzük, hogy mindkettőt ugyanarra a típusra alakítjuk
+    if (this.selectedCar && this.selectedCar !== '0') {
+      // A selectedCar-t számra alakítjuk, hogy biztosan szám típusú legyen
+      const selectedCarValue = Number(this.selectedCar);
+  
+      // A hirdetéseket szűrjük a kategóriaID alapján, mindkettőt szám típusra konvertálva
       this.filteredAdvertisements = this.advertisments.filter(ad => {
-        return ad.categoryID === this.selectedCar;  // Ha a kategóriaID megegyezik a kiválasztottal, akkor megtartjuk
+        const categoryID = Number(ad.categoryID); // A categoryID-t számra konvertáljuk
+        return categoryID === selectedCarValue; // Most már biztos, hogy mindkettő szám
       });
     } else {
-      this.filteredAdvertisements = [...this.advertisments];  // Ha nincs kiválasztott kategória, az összes hirdetés megjelenik
+      // Ha a selectedCar '0', az összes hirdetés megjelenik
+      this.filteredAdvertisements = [...this.advertisments];
     }
+  
+    console.log("filteredAdvertisements:", this.filteredAdvertisements);
   }
+  
+  
+  
+  
 
-  // Kategóriák listája
   cars: Car[] = [
+    {value: '0', viewValue: 'Össsze'},
     { value: '1', viewValue: 'Ingatlan' },
     { value: '2', viewValue: 'Gépjármű' },
-    { value: '3', viewValue: 'Háztartási gép' },
-    { value: '4', viewValue: 'Szolgáltatás' },
+    { value: '3', viewValue: 'Szolgáltatás' },
+    { value: '4', viewValue: 'Háztartási gép' },
     { value: '5', viewValue: 'Játék' },
     { value: '6', viewValue: 'Ruházat' },
     { value: '7', viewValue: 'Elektronika' },
@@ -58,12 +68,10 @@ export class HirdetesekComponent implements OnInit {
     { value: '10', viewValue: 'Egyéb' },
   ];
 
-  // Kezdetben az 'Egyéb' kategória van kiválasztva
-  selectedCar = this.cars[9].value;
+  selectedCar = this.cars[9].value;  // Alapértelmezetten az 'Egyéb' kategória.
 
-  // Kategória kiválasztásakor hívjuk a szűrési funkciót
   selectCar(event: Event) {
     this.selectedCar = (event.target as HTMLSelectElement).value;
-    this.filterAdvertisements();  // Kategória választás után szűrjük a hirdetéseket
+    this.filterAdvertisements();  // Ha változik a kategória, alkalmazzuk a szűrést.
   }
 }

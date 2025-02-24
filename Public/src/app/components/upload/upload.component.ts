@@ -41,8 +41,8 @@ interface Car {
     cars: Car[] = [
       {value: '1', viewValue: 'Ingatlan'},
       {value: '2', viewValue: 'Gépjármű'},
-      {value: '3', viewValue: 'Háztartási gép'},
-      {value: '4', viewValue: 'Szolgáltatás'},
+      {value: '3', viewValue: 'Szolgáltatás'},
+      {value: '4', viewValue: 'Háztartási gép'},
       {value: '5', viewValue: 'Játék'},
       {value: '6', viewValue: 'Ruházat'},
       {value: '7', viewValue: 'Elektronika'},
